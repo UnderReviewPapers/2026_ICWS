@@ -1,0 +1,3774 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/me/v1": {
+      "get": {
+        "operationId": "MeController_find",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Return user values",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "me"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/healthcheck": {
+      "get": {
+        "operationId": "HealthCheckController_healthcheck",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/devices": {
+      "get": {
+        "operationId": "DevicesController_GetDevices",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "get all devices",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceResponse"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/devices/create": {
+      "post": {
+        "operationId": "DevicesController_CreateDevice",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceCreateBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "create new device",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/devices/device/{id}": {
+      "get": {
+        "operationId": "DevicesController_GetDevice",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "example": 282,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "get one device",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/devices/device/{id}/timings": {
+      "post": {
+        "operationId": "DevicesController_GetDeviceTimings",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceTimingsBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "get timings for device",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceTimingsResponse"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/devices/update": {
+      "patch": {
+        "operationId": "DevicesController_UpdateDevice",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceCreateBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "patch one device",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/devices/delete": {
+      "post": {
+        "operationId": "DevicesController_DeleteDevices",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceIdsBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "delete one or more devices"
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/devices/device/{id}/elements": {
+      "get": {
+        "operationId": "DevicesController_GetDeviceElements",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "get device elements",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceElementsResponse"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "post": {
+        "operationId": "DevicesController_CreateDeviceElement",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "create device elements",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceElementsResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "put": {
+        "operationId": "DevicesController_UpdateDeviceElement",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceCreateBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "update one device element",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceElementsResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/devices/device/elements-delete": {
+      "post": {
+        "operationId": "DevicesController_DeleteDeviceElements",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceIdsBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "delete one or more elements"
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/devices/element-types-options": {
+      "get": {
+        "operationId": "DevicesController_GetDeviceElementTypes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "get element type options",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElementsTypeOptionsResponse"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/devices/report": {
+      "post": {
+        "operationId": "DevicesController_GetDevicesReport",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DevicesReportBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "get devices report",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceResponse"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/devices/device/{id}/set-to-inside": {
+      "post": {
+        "operationId": "DevicesController_SetInside",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "example": 282,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "set the device as Inside sensor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceSetToInsideResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customers/options": {
+      "get": {
+        "operationId": "CustomersController_getOptions",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "get list of customers for select list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerOptions"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "customers"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customers": {
+      "get": {
+        "operationId": "CustomersController_getCustomers",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "get all customers"
+          }
+        },
+        "tags": [
+          "customers"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customers/customer/{id}": {
+      "get": {
+        "operationId": "CustomersController_getCustomer",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "example": 282,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "get one customer"
+          }
+        },
+        "tags": [
+          "customers"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customers/create": {
+      "post": {
+        "operationId": "CustomersController_CreateCustomer",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerCreateBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "create new customer"
+          }
+        },
+        "tags": [
+          "customers"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customers/update": {
+      "patch": {
+        "operationId": "CustomersController_UpdateCustomer",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerUpdateBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "patch one customer"
+          }
+        },
+        "tags": [
+          "customers"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customers/delete": {
+      "post": {
+        "operationId": "CustomersController_DeleteCustomers",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerIdsBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "delete one or many customers"
+          }
+        },
+        "tags": [
+          "customers"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customers/report": {
+      "post": {
+        "operationId": "CustomersController_GetCustomersReport",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomersReportBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "get customers report"
+          }
+        },
+        "tags": [
+          "customers"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores/options": {
+      "get": {
+        "operationId": "StoresController_StoreList",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Retrieve a list of store options available for selection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StoreOptions"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "stores"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores": {
+      "get": {
+        "operationId": "StoresController_Stores",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Retrieve a comprehensive list of stores for display in a table format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StoreOptions"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "stores"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores/store/{id}": {
+      "get": {
+        "operationId": "StoresController_getStore",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieve detailed information about a specific store by its ID"
+          }
+        },
+        "tags": [
+          "stores"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores/store": {
+      "get": {
+        "operationId": "StoresController_getStoreByDescriptionOrCode",
+        "parameters": [
+          {
+            "name": "name",
+            "required": true,
+            "in": "query",
+            "description": "The name or code of the store to search for",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieve information about a specific store by description or customer code"
+          }
+        },
+        "tags": [
+          "stores"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores/create": {
+      "post": {
+        "operationId": "StoresController_createStore",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "The data required to create a new store",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StoreCreateBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Create a new store with the provided details"
+          }
+        },
+        "tags": [
+          "stores"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores/update-store": {
+      "post": {
+        "operationId": "StoresController_updateStore",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StoreUpdateBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Update the details of an existing store using the provided store update data"
+          }
+        },
+        "tags": [
+          "stores"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores/groups": {
+      "get": {
+        "operationId": "StoresController_getGroups",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Retrieve a list of store groups with their respective stores and users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StoresGroupsResponse"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "stores"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores/group-options": {
+      "get": {
+        "operationId": "StoresController_getGroupOptions",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Retrieve a list of user group options available for selection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserGroupOptionsResponse"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "stores"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores/create-group": {
+      "post": {
+        "operationId": "StoresController_createGroup",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "The data required to create a new store group",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStoreGroupBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Create a new store group with the provided details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StoresGroupsResponse"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "stores"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores/delete-groups": {
+      "post": {
+        "operationId": "StoresController_deleteManyGroups",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IdsBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Delete multiple store groups based on the provided IDs"
+          }
+        },
+        "tags": [
+          "stores"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores/update-group": {
+      "post": {
+        "operationId": "StoresController_updateGroup",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "The data required to update an existing store group, including stores and users",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStoreGroupBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Update the details of an existing store group using the provided update data that includes stores and users"
+          }
+        },
+        "tags": [
+          "stores"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores/store-group/{id}": {
+      "get": {
+        "operationId": "StoresController_getStoreGroup",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieve detailed information about a specific store group by its ID, including its stores and users"
+          }
+        },
+        "tags": [
+          "stores"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores/report": {
+      "post": {
+        "operationId": "StoresController_GetStoresReport",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StoresReportBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "get stores report"
+          }
+        },
+        "tags": [
+          "stores"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores/devices/{id}": {
+      "get": {
+        "operationId": "StoresController_getStoreDeviceCodes",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "get store device codes list"
+          }
+        },
+        "tags": [
+          "stores"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores/countries": {
+      "get": {
+        "operationId": "StoresController_getCountries",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "get countries list"
+          }
+        },
+        "tags": [
+          "stores"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users": {
+      "get": {
+        "operationId": "UsersController_GetUsers",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "get all users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserAdminPortalResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/options": {
+      "get": {
+        "operationId": "UsersController_UserList",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Retrieve a list of user options available for selection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserOptions"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/user/{id}": {
+      "get": {
+        "operationId": "UsersController_GetUser",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "example": 282,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "get one user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserAdminPortalResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/update": {
+      "patch": {
+        "operationId": "UsersController_UpdateUser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdateBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "update user details and user stores assignment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserAdminPortalResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/update-UserStoreGroup-assignment": {
+      "post": {
+        "operationId": "UsersController_UpdateUserStoreGroupAssignment",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdateStoreGroupsAssignmentBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "assign/deassign user to group of stores"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/create": {
+      "post": {
+        "operationId": "UsersController_CreateUser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCreateBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "create new user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserAdminPortalResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/delete": {
+      "post": {
+        "operationId": "UsersController_DeleteUser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserIdsBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "delete user"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/create-token": {
+      "post": {
+        "operationId": "UsersController_CreateUsersToken",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserIdsBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "create users token"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/change-token-status": {
+      "post": {
+        "operationId": "UsersController_ChangeTokenStatus",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeTokenStatusBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "activate or deactivate users token"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/change-email-activation": {
+      "post": {
+        "operationId": "UsersController_ChangeUserEmailActivation",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeUserEmailActivationBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "activate or deactivate users email"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/change-activation": {
+      "post": {
+        "operationId": "UsersController_ChangeUserActivation",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeUserEmailActivationBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "activate or deactivate users"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/report": {
+      "post": {
+        "operationId": "UsersController_GetUsersReport",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserReportBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "get users report",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserReportResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/change-customer-visible": {
+      "post": {
+        "operationId": "UsersController_ChangeCustomerVisible",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeCustomerVisibleBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "set CustomerVisible true or false for users"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/central-managers": {
+      "get": {
+        "operationId": "UsersController_GetCentralManagers",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "get all central managers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserAdminPortalResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/change-central-manager-state": {
+      "post": {
+        "operationId": "UsersController_ChangeCentralManagerState",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeCentralManagerStateBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "start / stop central manager"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/central-manager/create": {
+      "post": {
+        "operationId": "UsersController_CreateCentralManager",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCreateBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "create new central manager",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserAdminPortalResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores-business-group/options": {
+      "get": {
+        "operationId": "StoresBusinessGroupController_StoreStatus",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "get list of stores",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BusinessGroupOptions"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "stores-business-group"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores-business-group/create": {
+      "post": {
+        "operationId": "StoresBusinessGroupController_createBusinessGroup",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBusinessGroupBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "create business group",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateBusinessGroupResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "stores-business-group"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores-business-group": {
+      "get": {
+        "operationId": "StoresBusinessGroupController_getBusinessGroups",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "get business groups",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CreateBusinessGroupResponse"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "stores-business-group"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores-business-group/{id}": {
+      "get": {
+        "operationId": "StoresBusinessGroupController_getBusinessGroup",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "get business group"
+          }
+        },
+        "tags": [
+          "stores-business-group"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "put": {
+        "operationId": "StoresBusinessGroupController_updateBusinessGroup",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBusinessGroupBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "update business group",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateBusinessGroupResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "stores-business-group"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/stores-business-group/delete": {
+      "post": {
+        "operationId": "StoresBusinessGroupController_deleteBusinessGroup",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IdsBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "delete business group"
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdsBody"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "stores-business-group"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/notes/{id}": {
+      "get": {
+        "operationId": "NotesController_getNotes",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "example": 282,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "get notes for store"
+          }
+        },
+        "tags": [
+          "notes"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/notes/update": {
+      "post": {
+        "operationId": "NotesController_updateNote",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NoteUpdateBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "notes"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/notes/create": {
+      "post": {
+        "operationId": "NotesController_createNote",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NoteCreateBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "notes"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/notes/delete": {
+      "post": {
+        "operationId": "NotesController_deleteNotes",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MongoIdsBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "notes"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/sensor-config/{vendor}": {
+      "get": {
+        "operationId": "SensorConfigController_getStore",
+        "parameters": [
+          {
+            "name": "vendor",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "get sensor configuration parameters for a vendor"
+          }
+        },
+        "tags": [
+          "config"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "  Admin",
+    "description": "API DOCUMENTATION",
+    "version": "1.0",
+    "contact": {
+
+    }
+  },
+  "tags": [
+    {
+      "name": "stores",
+      "description": ""
+    }
+  ],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "UserResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 127
+          },
+          "Code": {
+            "type": "string",
+            "example": "nxyOo6231Xh"
+          },
+          "Nome": {
+            "type": "string",
+            "example": "Scout 1"
+          },
+          "Mail": {
+            "type": "string",
+            "example": "email@scout.it"
+          },
+          "isAdmin": {
+            "type": "boolean",
+            "example": false
+          },
+          "isStoreAdmin": {
+            "type": "boolean",
+            "example": true
+          },
+          "StartHour": {
+            "type": "number",
+            "example": 9
+          },
+          "EndHour": {
+            "type": "number",
+            "example": 24
+          },
+          "Show": {
+            "type": "string",
+            "example": "In"
+          },
+          "isMall": {
+            "type": "boolean",
+            "example": false
+          },
+          "showGroup": {
+            "type": "boolean",
+            "example": false
+          },
+          "Customer_id": {
+            "type": "number",
+            "example": 46
+          },
+          "AuthCode": {
+            "type": "string",
+            "example": "auth0|610aafa15ea8ba00697ea849"
+          },
+          "Stores": {
+            "example": [282],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "Params": {
+            "type": "object",
+            "example": {
+              "indexes": {
+                "default": {
+                  "index": "default",
+                  "LightColor": "#709CFD",
+                  "DarkColor": "#0054FF",
+                  "isHighlight": 0
+                },
+                "Visits": {
+                  "index": "Visits",
+                  "LightColor": "#709CFD",
+                  "DarkColor": "#0054FF",
+                  "isHighlight": 1
+                },
+                "Passerbby": {
+                  "index": "Passerbby",
+                  "LightColor": "#9AEDAC",
+                  "DarkColor": "#50E26F",
+                  "isHighlight": 0
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "Code",
+          "Nome",
+          "Mail",
+          "isAdmin",
+          "isStoreAdmin",
+          "StartHour",
+          "EndHour",
+          "Show",
+          "isMall",
+          "showGroup",
+          "Customer_id",
+          "AuthCode",
+          "Stores",
+          "Params"
+        ]
+      },
+      "DeviceResponse": {
+        "type": "object",
+        "properties": {
+          "Area_id": {
+            "type": "number",
+            "example": 4
+          },
+          "BEAInDirection": {
+            "type": "string",
+            "example": "A"
+          },
+          "CalcInside": {
+            "type": "boolean",
+            "example": false
+          },
+          "Code": {
+            "type": "string",
+            "example": "D8:80:39:5C"
+          },
+          "Code_Detector": {
+            "type": "string",
+            "example": "AtestA"
+          },
+          "Customer_id": {
+            "type": "number",
+            "example": 1
+          },
+          "Customers": {
+            "type": "object",
+            "example": {
+              "Description": " "
+            }
+          },
+          "Description": {
+            "type": "string",
+            "example": "  floor 1"
+          },
+          "Direction": {
+            "type": "string",
+            "example": "Normale"
+          },
+          "Height": {
+            "type": "number",
+            "example": null
+          },
+          "HistoryLoad": {
+            "type": "boolean",
+            "example": true
+          },
+          "IPLan": {
+            "type": "string",
+            "example": "192.168.1.100"
+          },
+          "IPWan": {
+            "type": "string",
+            "example": "http://slowear.dyndns.o"
+          },
+          "Ibex_id": {
+            "type": "string",
+            "example": "32A155D1-686B"
+          },
+          "Password": {
+            "type": "string",
+            "example": "topsecret"
+          },
+          "Software": {
+            "type": "string",
+            "example": "3.4.1"
+          },
+          "Operation": {
+            "type": "string",
+            "example": "32"
+          },
+          "Store_id": {
+            "type": "number",
+            "example": 111
+          },
+          "TimeCall": {
+            "type": "string",
+            "example": null
+          },
+          "TimeReset": {
+            "type": "string",
+            "example": null
+          },
+          "TimeZone": {
+            "type": "string",
+            "example": "Europe/Rome"
+          },
+          "Type": {
+            "type": "string",
+            "example": "3D"
+          },
+          "User": {
+            "type": "string",
+            "example": "testUser"
+          },
+          "X": {
+            "type": "number",
+            "example": null
+          },
+          "Y": {
+            "type": "number",
+            "example": null
+          },
+          "id": {
+            "type": "number",
+            "example": 2
+          },
+          "isMonitored": {
+            "type": "number",
+            "example": 1
+          }
+        },
+        "required": [
+          "Area_id",
+          "BEAInDirection",
+          "CalcInside",
+          "Code",
+          "Code_Detector",
+          "Customer_id",
+          "Customers",
+          "Description",
+          "Direction",
+          "Height",
+          "HistoryLoad",
+          "IPLan",
+          "IPWan",
+          "Ibex_id",
+          "Password",
+          "Software",
+          "Operation",
+          "Store_id",
+          "TimeCall",
+          "TimeReset",
+          "TimeZone",
+          "Type",
+          "User",
+          "X",
+          "Y",
+          "id",
+          "isMonitored"
+        ]
+      },
+      "DeviceCreateBody": {
+        "type": "object",
+        "properties": {
+          "Code": {
+            "type": "string",
+            "example": "D8:80:39:5C"
+          },
+          "Customer_id": {
+            "type": "number",
+            "example": 2
+          },
+          "Store_id": {
+            "type": "number",
+            "example": 3
+          },
+          "Area_id": {
+            "type": "number",
+            "example": 4
+          },
+          "Description": {
+            "type": "string",
+            "example": "Description"
+          },
+          "CalcInside": {
+            "type": "number",
+            "example": 1
+          },
+          "TimeReset": {
+            "type": "object",
+            "example": "2023-10-20T10:00:00"
+          },
+          "TimeZone": {
+            "type": "string",
+            "example": "TimeZone"
+          },
+          "Code_Detector": {
+            "type": "string",
+            "example": "Code_Detector"
+          },
+          "Direction": {
+            "type": "string",
+            "example": "Direction"
+          },
+          "Type": {
+            "type": "string",
+            "example": "Type"
+          },
+          "User": {
+            "type": "string",
+            "example": "User"
+          },
+          "Password": {
+            "type": "string",
+            "example": "Password"
+          },
+          "IPLan": {
+            "type": "string",
+            "example": "IPLan"
+          },
+          "IPWan": {
+            "type": "string",
+            "example": "IPWan"
+          },
+          "Height": {
+            "type": "number",
+            "example": 5
+          },
+          "Software": {
+            "type": "string",
+            "example": "Software"
+          },
+          "Operation": {
+            "type": "string",
+            "example": "Operation"
+          },
+          "TimeCall": {
+            "type": "object",
+            "example": "2023-10-20T10:00:00"
+          },
+          "HistoryLoad": {
+            "type": "boolean",
+            "example": true
+          },
+          "isMonitored": {
+            "type": "number",
+            "example": 6
+          },
+          "BEAInDirection": {
+            "type": "string",
+            "example": "BEAInDirection"
+          },
+          "X": {
+            "type": "number",
+            "example": 7
+          },
+          "Y": {
+            "type": "number",
+            "example": 8
+          },
+          "Ibex_id": {
+            "type": "string",
+            "example": "Ibex_id"
+          },
+          "created_by": {
+            "type": "string",
+            "example": "Admin"
+          }
+        },
+        "required": [
+          "Code",
+          "Customer_id",
+          "Store_id",
+          "Area_id",
+          "Description",
+          "CalcInside",
+          "TimeReset",
+          "TimeZone",
+          "Code_Detector",
+          "Direction",
+          "Type",
+          "User",
+          "Password",
+          "IPLan",
+          "IPWan",
+          "Height",
+          "Software",
+          "Operation",
+          "TimeCall",
+          "HistoryLoad",
+          "isMonitored",
+          "BEAInDirection",
+          "X",
+          "Y",
+          "Ibex_id",
+          "created_by"
+        ]
+      },
+      "DeviceTimingsBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 139
+          },
+          "startDate": {
+            "type": "string",
+            "example": "2023-10-02T12:00:00.000Z"
+          },
+          "endDate": {
+            "type": "string",
+            "example": "2023-10-02T14:00:00.000Z"
+          }
+        },
+        "required": [
+          "id",
+          "startDate",
+          "endDate"
+        ]
+      },
+      "DeviceTimingsResponse": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "651b93a4f9d2da39f8d469f2"
+          },
+          "Customer_id": {
+            "type": "number",
+            "example": 5
+          },
+          "Store_id": {
+            "type": "number",
+            "example": 5
+          },
+          "Area_id": {
+            "type": "number",
+            "example": 4
+          },
+          "Device_id": {
+            "type": "number",
+            "example": 1
+          },
+          "Element_id": {
+            "type": "number",
+            "example": 0
+          },
+          "DateIns": {
+            "type": "string",
+            "example": "2023-10-03T04:08:03.513Z"
+          },
+          "TimeSlot": {
+            "type": "string",
+            "example": "2023-10-03:06"
+          },
+          "Operation": {
+            "type": "number",
+            "example": 7
+          },
+          "isOpen": {
+            "type": "boolean",
+            "example": false
+          },
+          "In": {
+            "type": "number",
+            "example": 1
+          },
+          "Out": {
+            "type": "number",
+            "example": 0
+          },
+          "Inside": {
+            "type": "number",
+            "example": 1
+          },
+          "isReset": {
+            "type": "boolean",
+            "example": true
+          },
+          "isResetDone": {
+            "type": "boolean",
+            "example": true
+          }
+        },
+        "required": [
+          "_id",
+          "Customer_id",
+          "Store_id",
+          "Area_id",
+          "Device_id",
+          "Element_id",
+          "DateIns",
+          "TimeSlot",
+          "Operation",
+          "isOpen",
+          "In",
+          "Out",
+          "Inside",
+          "isReset",
+          "isResetDone"
+        ]
+      },
+      "DeviceIdsBody": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "example": [138, 139],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "ids"
+        ]
+      },
+      "DeviceElementsResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "Description": {
+            "type": "string",
+            "example": "test"
+          },
+          "Device_id": {
+            "type": "number",
+            "example": 2
+          },
+          "ElementType_id": {
+            "type": "number",
+            "example": 3
+          },
+          "Element_id": {
+            "type": "number",
+            "example": 4
+          },
+          "Geometry_id": {
+            "type": "number",
+            "example": 3
+          },
+          "Logic_id": {
+            "type": "number",
+            "example": 4
+          },
+          "ElementTypes": {
+            "type": "object",
+            "example": {
+              "id": 4,
+              "Type": "Altro"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "Description",
+          "Device_id",
+          "ElementType_id",
+          "Element_id",
+          "Geometry_id",
+          "Logic_id",
+          "ElementTypes"
+        ]
+      },
+      "ElementsTypeOptionsResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "Type": {
+            "type": "string",
+            "example": "Passanti"
+          }
+        },
+        "required": [
+          "id",
+          "Type"
+        ]
+      },
+      "DevicesReportBody": {
+        "type": "object",
+        "properties": {
+          "Customers": {
+            "example": [138, 139],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "Customers"
+        ]
+      },
+      "DeviceSetToInsideResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "CalcInside": {
+            "type": "boolean",
+            "example": true
+          },
+          "TimeReset": {
+            "type": "object",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "DeviceElements": {
+            "example": [
+              {
+                "id": 4,
+                "ElementType_id": 3,
+                "Element_id": 0
+              }
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "CalcInside",
+          "TimeReset",
+          "DeviceElements"
+        ]
+      },
+      "CustomerOptions": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 138
+          },
+          "Description": {
+            "type": "string",
+            "example": "Poste Italiane"
+          }
+        },
+        "required": [
+          "id",
+          "Description"
+        ]
+      },
+      "CustomerCreateBody": {
+        "type": "object",
+        "properties": {
+          "Code": {
+            "type": "string",
+            "example": "Poste Italiane"
+          }
+        },
+        "required": [
+          "Code"
+        ]
+      },
+      "CustomerUpdateBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 190
+          },
+          "Code": {
+            "type": "string",
+            "example": "Poste Italiane"
+          }
+        },
+        "required": [
+          "id",
+          "Code"
+        ]
+      },
+      "CustomerIdsBody": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "example": [138, 139],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "ids"
+        ]
+      },
+      "CustomersReportBody": {
+        "type": "object",
+        "properties": {
+          "Customers": {
+            "example": [138, 139],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "Customers"
+        ]
+      },
+      "StoreOptions": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 825
+          },
+          "Description": {
+            "type": "string",
+            "example": "Casteggio"
+          },
+          "Customers": {
+            "type": "object",
+            "example": {
+              "id": 138
+            }
+          }
+        },
+        "required": [
+          "id",
+          "Description",
+          "Customers"
+        ]
+      },
+      "StoreCreateBody": {
+        "type": "object",
+        "properties": {
+          "ANielsen": {
+            "type": "string",
+            "example": "Italy"
+          },
+          "ActivationDate": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2024-03-16T12:00:00.000Z"
+          },
+          "City": {
+            "type": "string",
+            "example": "Milan"
+          },
+          "CodePVCustomer": {
+            "type": "string",
+            "example": "C01"
+          },
+          "Coefficient": {
+            "type": "number",
+            "example": 3.1
+          },
+          "DecreasePerc": {
+            "type": "number",
+            "example": 20
+          },
+          "DecreaseValue": {
+            "type": "number",
+            "example": 20
+          },
+          "Language": {
+            "type": "string",
+            "example": "C01"
+          },
+          "Latitude": {
+            "type": "number",
+            "example": 45.46
+          },
+          "Longitude": {
+            "type": "number",
+            "example": 9.19
+          },
+          "OpeningTime": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2024-03-16T12:00:00.000Z"
+          },
+          "StartDate": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2024-03-16T12:00:00.000Z"
+          },
+          "isActive": {
+            "type": "number",
+            "example": 1
+          },
+          "BusinessGroup_id": {
+            "type": "number",
+            "example": 1
+          },
+          "Code": {
+            "type": "string",
+            "example": "Code"
+          },
+          "Customer_id": {
+            "type": "number",
+            "example": 1
+          },
+          "Description": {
+            "type": "string",
+            "example": "Desc"
+          },
+          "created_by": {
+            "type": "string",
+            "example": "Admin"
+          }
+        },
+        "required": [
+          "ANielsen",
+          "ActivationDate",
+          "City",
+          "CodePVCustomer",
+          "Coefficient",
+          "DecreasePerc",
+          "DecreaseValue",
+          "Language",
+          "Latitude",
+          "Longitude",
+          "OpeningTime",
+          "StartDate",
+          "isActive",
+          "BusinessGroup_id",
+          "Code",
+          "Customer_id",
+          "Description",
+          "created_by"
+        ]
+      },
+      "StoreUpdateBody": {
+        "type": "object",
+        "properties": {
+          "ANielsen": {
+            "type": "string",
+            "example": "Italy"
+          },
+          "ActivationDate": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2024-03-16T12:00:00.000Z"
+          },
+          "City": {
+            "type": "string",
+            "example": "Milan"
+          },
+          "CodePVCustomer": {
+            "type": "string",
+            "example": "C01"
+          },
+          "Coefficient": {
+            "type": "number",
+            "example": 3.1
+          },
+          "DecreasePerc": {
+            "type": "number",
+            "example": 20
+          },
+          "DecreaseValue": {
+            "type": "number",
+            "example": 20
+          },
+          "Language": {
+            "type": "string",
+            "example": "C01"
+          },
+          "Latitude": {
+            "type": "number",
+            "example": 45.46
+          },
+          "Longitude": {
+            "type": "number",
+            "example": 9.19
+          },
+          "OpeningTime": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2024-03-16T12:00:00.000Z"
+          },
+          "StartDate": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2024-03-16T12:00:00.000Z"
+          },
+          "isActive": {
+            "type": "number",
+            "example": 1
+          },
+          "BusinessGroup_id": {
+            "type": "number",
+            "example": 1
+          },
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "Code": {
+            "type": "string",
+            "example": "Code"
+          },
+          "Customer_id": {
+            "type": "number",
+            "example": 1
+          },
+          "Description": {
+            "type": "string",
+            "example": "Desc"
+          },
+          "last_modified_by": {
+            "type": "string",
+            "example": "Admin"
+          }
+        },
+        "required": [
+          "ANielsen",
+          "ActivationDate",
+          "City",
+          "CodePVCustomer",
+          "Coefficient",
+          "DecreasePerc",
+          "DecreaseValue",
+          "Language",
+          "Latitude",
+          "Longitude",
+          "OpeningTime",
+          "StartDate",
+          "isActive",
+          "BusinessGroup_id",
+          "id",
+          "Code",
+          "Customer_id",
+          "Description",
+          "last_modified_by"
+        ]
+      },
+      "StoresGroupsResponse": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "example": "testGroup"
+          },
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "stores": {
+            "example": [
+              {
+                "Description": "testStore",
+                "groupStoreId": 1,
+                "id": 1
+              }
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "description",
+          "id",
+          "stores"
+        ]
+      },
+      "UserGroupOptionsResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 35
+          },
+          "description": {
+            "type": "string",
+            "example": "testGroup"
+          }
+        },
+        "required": [
+          "id",
+          "description"
+        ]
+      },
+      "CreateStoreGroupBody": {
+        "type": "object",
+        "properties": {
+          "Stores": {
+            "example": [138, 139],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "Users": {
+            "example": [
+              "user1",
+              "user2"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "description": {
+            "type": "string",
+            "example": "test group"
+          }
+        },
+        "required": [
+          "Stores",
+          "Users",
+          "description"
+        ]
+      },
+      "IdsBody": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "example": [138, 139],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "ids"
+        ]
+      },
+      "UpdateStoreGroupBody": {
+        "type": "object",
+        "properties": {
+          "Stores": {
+            "example": [138, 139],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "Users": {
+            "example": [
+              "user1",
+              "user2"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "description": {
+            "type": "string",
+            "example": "test group"
+          },
+          "id": {
+            "type": "number",
+            "example": 15
+          }
+        },
+        "required": [
+          "Stores",
+          "Users",
+          "description",
+          "id"
+        ]
+      },
+      "StoresReportBody": {
+        "type": "object",
+        "properties": {
+          "Customers": {
+            "example": [138, 139],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "Customers"
+        ]
+      },
+      "UserAdminPortalResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "Code": {
+            "type": "string",
+            "example": "UL2itEB8HXMmXCkRMUrG"
+          },
+          "Nome": {
+            "type": "string",
+            "example": "  Web"
+          },
+          "Provider": {
+            "type": "string",
+            "example": "password"
+          },
+          "Mail": {
+            "type": "string",
+            "example": "testweb@gmail.com"
+          },
+          "isAdmin": {
+            "type": "number",
+            "example": 1
+          },
+          "isActive": {
+            "type": "number",
+            "example": 1
+          },
+          "isStoreAdmin": {
+            "type": "number",
+            "example": true
+          },
+          "isMailActive": {
+            "type": "number",
+            "example": true
+          },
+          "isMall": {
+            "type": "number",
+            "example": 1
+          },
+          "CustomerVisible": {
+            "type": "number",
+            "example": 1
+          },
+          "Customer_id": {
+            "type": "number",
+            "example": 46
+          },
+          "AuthCode": {
+            "type": "string",
+            "example": "auth0|610aafa15ea8ba00697ea849"
+          },
+          "Salt": {
+            "type": "string",
+            "example": null
+          },
+          "Password": {
+            "type": "string",
+            "example": "topsecret"
+          },
+          "Auth_code": {
+            "type": "string",
+            "example": "auth0|topsecret"
+          },
+          "Customers": {
+            "type": "object",
+            "example": {
+              "Description": " "
+            }
+          },
+          "ApiKeys": {
+            "example": [
+              {
+                "id": 258,
+                "User_code": "UL2itEB8MUrGgBPepvM2",
+                "ApiKey": "b8f63a18-5ff409a013f",
+                "isActive": 1,
+                "isAttendanceAlarmActive": 0
+              }
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "Code",
+          "Nome",
+          "Provider",
+          "Mail",
+          "isAdmin",
+          "isActive",
+          "isStoreAdmin",
+          "isMailActive",
+          "isMall",
+          "CustomerVisible",
+          "Customer_id",
+          "AuthCode",
+          "Salt",
+          "Password",
+          "Auth_code",
+          "Customers",
+          "ApiKeys"
+        ]
+      },
+      "UserOptions": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "Code": {
+            "type": "string",
+            "example": "xxx|code"
+          },
+          "Mail": {
+            "type": "string",
+            "example": "user.name@gmail.com"
+          },
+          "Customers": {
+            "$ref": "#/components/schemas/CustomerOptions"
+          }
+        },
+        "required": [
+          "id",
+          "Code",
+          "Mail",
+          "Customers"
+        ]
+      },
+      "UserUpdateBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 127
+          },
+          "Code": {
+            "type": "string",
+            "example": "nxyOo6231Xh"
+          },
+          "Nome": {
+            "type": "string",
+            "example": "Scout 1"
+          },
+          "Mail": {
+            "type": "string",
+            "example": "test@gmail.com"
+          },
+          "isAdmin": {
+            "type": "number",
+            "example": 1
+          },
+          "isStoreAdmin": {
+            "type": "number",
+            "example": 1
+          },
+          "isActive": {
+            "type": "number",
+            "example": 1
+          },
+          "Stores": {
+            "example": [
+              {
+                "User_code": "dsds610aafa15",
+                "Store_id": 282
+              }
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "Password": {
+            "type": "string",
+            "example": "topsecreet"
+          },
+          "CustomerVisible": {
+            "type": "number",
+            "example": 1
+          },
+          "Customer_id": {
+            "type": "number",
+            "example": 1
+          },
+          "last_modified_by": {
+            "type": "string",
+            "example": "Admin"
+          }
+        },
+        "required": [
+          "id",
+          "Code",
+          "Nome",
+          "Mail",
+          "isAdmin",
+          "isStoreAdmin",
+          "isActive",
+          "Stores",
+          "Password",
+          "CustomerVisible",
+          "Customer_id",
+          "last_modified_by"
+        ]
+      },
+      "UserUpdateStoreGroupsAssignmentBody": {
+        "type": "object",
+        "properties": {
+          "groupsIds": {
+            "example": [138, 139],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "action": {
+            "type": "string",
+            "example": "assign",
+            "enum": [
+              "assign",
+              "deassign"
+            ]
+          },
+          "userCode": {
+            "type": "string",
+            "example": "auth|dsds3r34"
+          },
+          "userId": {
+            "type": "number",
+            "example": 227
+          }
+        },
+        "required": [
+          "groupsIds",
+          "action",
+          "userCode",
+          "userId"
+        ]
+      },
+      "UserCreateBody": {
+        "type": "object",
+        "properties": {
+          "Nome": {
+            "type": "string",
+            "example": "Scout 1"
+          },
+          "Mail": {
+            "type": "string",
+            "example": "test@gmail.com"
+          },
+          "isAdmin": {
+            "type": "number",
+            "example": 1
+          },
+          "isStoreAdmin": {
+            "type": "number",
+            "example": 1
+          },
+          "isActive": {
+            "type": "number",
+            "example": 1
+          },
+          "Stores": {
+            "example": [
+              {
+                "User_code": "dsds610aafa15",
+                "Store_id": 282
+              }
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "Password": {
+            "type": "string",
+            "example": "topsecreet"
+          },
+          "CustomerVisible": {
+            "type": "number",
+            "example": 1
+          },
+          "Customer_id": {
+            "type": "number",
+            "example": 1
+          },
+          "isCentralManager": {
+            "type": "number",
+            "example": 1
+          }
+        },
+        "required": [
+          "Nome",
+          "Mail",
+          "isAdmin",
+          "isStoreAdmin",
+          "isActive",
+          "Stores",
+          "Password",
+          "CustomerVisible",
+          "Customer_id",
+          "isCentralManager"
+        ]
+      },
+      "UserIdsBody": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "example": [138, 139],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "ids"
+        ]
+      },
+      "ChangeTokenStatusBody": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "example": [123, 124],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "action": {
+            "type": "string",
+            "example": "activate",
+            "enum": [
+              "activate",
+              "deactivate"
+            ]
+          }
+        },
+        "required": [
+          "ids",
+          "action"
+        ]
+      },
+      "ChangeUserEmailActivationBody": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "example": [123, 124],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "action": {
+            "type": "string",
+            "example": "activate",
+            "enum": [
+              "activate",
+              "deactivate"
+            ]
+          }
+        },
+        "required": [
+          "ids",
+          "action"
+        ]
+      },
+      "UserReportBody": {
+        "type": "object",
+        "properties": {
+          "Customers": {
+            "example": [138, 139],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "Customers"
+        ]
+      },
+      "UserReportResponse": {
+        "type": "object",
+        "properties": {
+          "Code": {
+            "type": "string",
+            "example": "ewddf2ew-refdsfg"
+          },
+          "Mail": {
+            "type": "string",
+            "example": "test@mail.com"
+          },
+          "Nome": {
+            "type": "string",
+            "example": "Poste Italiane 1"
+          },
+          "isActive": {
+            "type": "number",
+            "example": 1
+          },
+          "isAdmin": {
+            "type": "number",
+            "example": 1
+          },
+          "isMailActive": {
+            "type": "number",
+            "example": 1
+          },
+          "isStoreAdmin": {
+            "type": "number",
+            "example": 1
+          },
+          "ApiKeys": {
+            "example": [
+              {
+                "ApiKey": "56b1dd4ce-b2w3-hhgtty"
+              }
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "UserStores": {
+            "example": [
+              {
+                "Stores": {
+                  "Description": "Casteggio"
+                }
+              }
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "Code",
+          "Mail",
+          "Nome",
+          "isActive",
+          "isAdmin",
+          "isMailActive",
+          "isStoreAdmin",
+          "ApiKeys",
+          "UserStores"
+        ]
+      },
+      "ChangeCustomerVisibleBody": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "example": [123, 124],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "action": {
+            "type": "string",
+            "example": "activate",
+            "enum": [
+              "activate",
+              "deactivate"
+            ]
+          }
+        },
+        "required": [
+          "ids",
+          "action"
+        ]
+      },
+      "ChangeCentralManagerStateBody": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "example": "abc-def"
+          },
+          "action": {
+            "type": "string",
+            "example": "start",
+            "enum": [
+              "start",
+              "stop"
+            ]
+          },
+          "user": {
+            "type": "string",
+            "example": "Admin"
+          }
+        },
+        "required": [
+          "key",
+          "action",
+          "user"
+        ]
+      },
+      "BusinessGroupOptions": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 825
+          },
+          "Description": {
+            "type": "string",
+            "example": "Casteggio"
+          },
+          "Customers": {
+            "type": "object",
+            "example": {
+              "id": 138
+            }
+          }
+        },
+        "required": [
+          "id",
+          "Description",
+          "Customers"
+        ]
+      },
+      "CreateBusinessGroupBody": {
+        "type": "object",
+        "properties": {
+          "Stores": {
+            "example": [138, 139],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "description": {
+            "type": "string",
+            "example": "test group"
+          },
+          "country": {
+            "type": "string",
+            "example": "Italy"
+          },
+          "created_by": {
+            "type": "string",
+            "example": "Admin"
+          }
+        },
+        "required": [
+          "Stores",
+          "description",
+          "country",
+          "created_by"
+        ]
+      },
+      "CreateBusinessGroupResponse": {
+        "type": "object",
+        "properties": {
+          "Stores": {
+            "example": [
+              {
+                "Description": "Casteggio",
+                "Customer_id": 138,
+                "id": 825
+              }
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "description": {
+            "type": "string",
+            "example": "test group"
+          },
+          "country": {
+            "type": "string",
+            "example": "Italy"
+          }
+        },
+        "required": [
+          "Stores",
+          "description",
+          "country"
+        ]
+      },
+      "UpdateBusinessGroupBody": {
+        "type": "object",
+        "properties": {
+          "Stores": {
+            "example": [138, 139],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "description": {
+            "type": "string",
+            "example": "test group"
+          },
+          "country": {
+            "type": "string",
+            "example": "Italy"
+          },
+          "last_modified_by": {
+            "type": "string",
+            "example": "Admin"
+          }
+        },
+        "required": [
+          "Stores",
+          "description",
+          "country",
+          "last_modified_by"
+        ]
+      },
+      "ObjectId": {
+        "type": "object",
+        "properties": {
+
+        }
+      },
+      "NoteUpdateBody": {
+        "type": "object",
+        "properties": {
+          "Store_id": {
+            "type": "number",
+            "example": 1
+          },
+          "Device": {
+            "type": "string",
+            "example": "00:11:22:33:44:55"
+          },
+          "DateTo": {
+            "type": "string",
+            "example": "2024-01-01"
+          },
+          "DateIns": {
+            "type": "string",
+            "example": "2024-01-01T12:00:00.0Z"
+          },
+          "isCustomerVisible": {
+            "type": "boolean",
+            "example": "2024-01-01"
+          },
+          "_id": {
+            "example": "xyz",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ObjectId"
+              }
+            ]
+          },
+          "DateFrom": {
+            "type": "string",
+            "example": "2024-01-01"
+          },
+          "Note": {
+            "type": "string",
+            "example": "Note"
+          }
+        },
+        "required": [
+          "Store_id",
+          "Device",
+          "DateTo",
+          "DateIns",
+          "isCustomerVisible",
+          "_id",
+          "DateFrom",
+          "Note"
+        ]
+      },
+      "NoteCreateBody": {
+        "type": "object",
+        "properties": {
+          "Store_id": {
+            "type": "number",
+            "example": 1
+          },
+          "Device": {
+            "type": "string",
+            "example": "00:11:22:33:44:55"
+          },
+          "DateTo": {
+            "type": "string",
+            "example": "2024-01-01"
+          },
+          "DateIns": {
+            "type": "string",
+            "example": "2024-01-01T12:00:00.0Z"
+          },
+          "isCustomerVisible": {
+            "type": "boolean",
+            "example": "2024-01-01"
+          },
+          "DateFrom": {
+            "type": "string",
+            "example": "2024-01-01"
+          },
+          "Note": {
+            "type": "string",
+            "example": "Note"
+          }
+        },
+        "required": [
+          "Store_id",
+          "Device",
+          "DateTo",
+          "DateIns",
+          "isCustomerVisible",
+          "DateFrom",
+          "Note"
+        ]
+      },
+      "MongoIdsBody": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "example": [
+              "abc",
+              "xyz"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "ids"
+        ]
+      }
+    }
+  }
+}

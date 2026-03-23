@@ -1,0 +1,10 @@
+# Production requirements for Lambda deployment
+redis==6.2.0
+boto3==1.37.37
+fastapi==0.115.12
+uvicorn==0.34.2
+actvalue.aws-pysdk>=0.3.0
+requests==2.31.0
+actvalue.lambda-mcp-server==1.0.0
+python-dotenv==1.2.1
+
