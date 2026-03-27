@@ -2,8 +2,9 @@
 
 This repository contains the code used for experimental evaluation.
 
-- API documentation example: `/openAPI`  
-- Source code: `/code`  
+- API documentation example: [`/openAPI`](/openAPI) 
+- Source code: [`/code`](/code) 
+- Prompt examples: [`/prompts`](/prompts)
 
 Configurations:
 - **C1, C2** → `/code/base`  
